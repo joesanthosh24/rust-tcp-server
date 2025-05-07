@@ -8,4 +8,7 @@ fn client_handler(mut stream: TcpStream) {
     stream.read(&mut buffer).expect("Failed to read stream");
     
     let req = String::from_utf8_lossy(&buffer[..]);
+
+    let res = "Hello, World!".as_bytes();
+    stream.write(res).expect("Failed to write response!");
 }
